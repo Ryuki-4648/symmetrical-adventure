@@ -11,6 +11,9 @@
 # production
 /build
 
+# images(本番用写真データ)
+/public/prod
+
 # misc
 .DS_Store
 .env.local
