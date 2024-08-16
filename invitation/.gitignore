@@ -14,6 +14,9 @@
 # images(本番用写真データ)
 /public/prod
 
+# env
+.env
+
 # misc
 .DS_Store
 .env.local
