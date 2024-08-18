@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.scss';
 import { useState } from 'react';
+import GiftMoneyModal from './components/GiftMoneyModal';
 
 function App() {
 
@@ -39,10 +40,12 @@ function App() {
         <h1 className=''>Wedding<br />Invitation</h1>
 
         <section className='l-greeting'>
-          <p className='l-greeting__text'>謹啓<br />皆様にはご健勝のこととお慶び申し上げます</p>
+        <p className='l-greeting__text'>謹啓</p>
+          <p className='l-greeting__text'>皆様にはご健勝のこととお慶び申し上げます</p>
           <p className='l-greeting__text'>このたび　私たちは<br />結婚式を挙げることになりました</p>
           <p className='l-greeting__text'>つきましては<br />ご挨拶をかねて<br />心ばかりの小宴を催したいと思います</p>
-          <p className='l-greeting__text'>おいそがしい中と存じますが<br />ぜひご出席いただきたくご案内申し上げます<br/>謹白</p>
+          <p className='l-greeting__text'>おいそがしい中と存じますが<br />ぜひご出席いただきたくご案内申し上げます</p>
+          <p className='l-greeting__text'>謹白</p>
           <p className='l-greeting__text'>2024年9月吉日</p>
           <p className='l-greeting__name'>{process.env.REACT_APP_GROOM_NAME}<br />{process.env.REACT_APP_BRIDE_NAME}</p>
         </section>
@@ -75,7 +78,7 @@ function App() {
 
         <section className='l-rsvp'>
           <h2 className='c-title01'>RSVP</h2>
-          <button className='l-rsvp__button'>招待状を回答する</button>
+          <button className='l-rsvp__button'>出欠情報を回答する</button>
           <p className='c-text02'>誠に勝手ながら10月11日（金）までに<br />お返事をいただければ幸いに存じます</p>
           <p className='c-text02'>期日以降、万が一変更がある場合はお手数ですが直接ご連絡ください</p>
         </section>
@@ -96,11 +99,12 @@ function App() {
           <h2 className='c-title01'>ACCSESS</h2>
           <div className='l-access__gmap'>
             <iframe src={process.env.REACT_APP_WEDDING_PLACE_GMAP} width="100%" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <p className='c-text02'>JR・阪神「元町駅」からだと道がわかりづらいため、シャトルバスやお車でのお越しをおすすめします。</p>
           </div>
 
           <h2 className='c-title01'>BUS<p className='c-title01__ja'>シャトルバスのご案内</p></h2>
           
-          <p className='c-text01'>Comming Soon...</p>
+          <p className='c-text01'>Comming Soon...<br/>式の1ヶ月前に時刻表を掲載します。</p>
         </section>
 
         <section className='l-'>
@@ -222,28 +226,7 @@ function App() {
 
         {/** ご祝儀モーダル */}
         {giftMoneyModal && (
-        <div className='l-giftModal'>
-          <h2>GIFT MONEY</h2>
-          <dl>
-            <dt>銀行名</dt>
-            <dd>{selectedPerson === 'groom' ? process.env.REACT_APP_GROOM_BANK : process.env.REACT_APP_BRIDE_BANK}</dd>
-          </dl>
-          <dl>
-            <dt>支店名</dt>
-            <dd>{selectedPerson === 'groom' ? process.env.REACT_APP_GROOM_BANK_BRANCH : process.env.REACT_APP_BRIDE_BANK_BRANCH}</dd>
-          </dl>
-          <dl>
-            <dt>口座番号</dt>
-            <dd>{selectedPerson === 'groom' ? process.env.REACT_APP_GROOM_BANK_NUMBER : process.env.REACT_APP_BRIDE_BANK_NUMBER}</dd>
-          </dl>
-          <dl>
-            <dt>名義</dt>
-            <dd>{selectedPerson === 'groom' ? process.env.REACT_APP_GROOM_NAME_KANA : process.env.REACT_APP_BRIDE_NAME_KANA}</dd>
-          </dl>
-          <p className='c-text02'>手数料を除いた金額をお振込ください。<br />お振込いただいた方は、ご連絡いただけますと幸いです。</p>
-        
-          <button onClick={() => setGiftMoneyModal(false)} className='l-giftModal__button'>閉じる</button>
-        </div>
+          <GiftMoneyModal selectedPerson={selectedPerson} onClose={() => setGiftMoneyModal(false)} />
         )}
       </main>
 
