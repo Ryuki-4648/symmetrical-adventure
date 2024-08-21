@@ -1,7 +1,9 @@
-import logo from './logo.svg';
 import './App.scss';
+
 import { useState } from 'react';
+
 import GiftMoneyModal from './components/GiftMoneyModal';
+import Header from './components/Header';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,6 +14,7 @@ import 'swiper/css/effect-creative';
 
 // import required modules
 import { Autoplay, EffectCreative } from 'swiper/modules';
+
 
 function App() {
 
@@ -26,9 +29,7 @@ function App() {
 
   return (
     <div className='l-container'>
-      <header className='l-header'>
-        <button className='l-header__button'>ME<br />NU</button>
-      </header>
+      <Header />
 
       <main className='l-main'>
         <div className='l-main__mv'>
@@ -103,6 +104,21 @@ function App() {
           </div>
         </section>
 
+        <section className='l-access'>
+          <div className='l-access__wrap'>
+            <h2 className='c-title01'>ACCSESS<p className='c-title01__ja'>アクセス</p></h2>
+            <div className='l-access__gmap'>
+              <iframe title='Google Map' className='l-access__iframe' src={process.env.REACT_APP_WEDDING_PLACE_GMAP} width="100%" height="300" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+              <p className='c-text02'>シャトルバスやお車でのお越しをおすすめします。</p>
+              <a href={process.env.REACT_APP_WEDDING_PLACE_PDF} target='_blank' rel="noreferrer" className='c-textLink01'>アクセス案内はこちら</a>
+            </div>
+
+            <h2 className='c-title01'>BUS<p className='c-title01__ja'>シャトルバスのご案内</p></h2>
+            
+            <p className='c-text01'>Comming Soon...<br/>式の1ヶ月前に時刻表を掲載します。</p>
+          </div>
+        </section>
+
         <section className='l-rsvp'>
           <h2 className='c-title01'>RSVP</h2>
           <button className='l-rsvp__button'>出欠情報を回答する</button>
@@ -126,21 +142,6 @@ function App() {
           </div>
         </section>
 
-        <section className='l-access'>
-          <div className='l-access__wrap'>
-            <h2 className='c-title01'>ACCSESS<p className='c-title01__ja'>アクセス</p></h2>
-            <div className='l-access__gmap'>
-              <iframe className='l-access__iframe' src={process.env.REACT_APP_WEDDING_PLACE_GMAP} width="100%" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              <p className='c-text02'>JR・阪神「元町駅」からだと道がわかりづらいため、シャトルバスやお車でのお越しをおすすめします。</p>
-              <a href={process.env.REACT_APP_WEDDING_PLACE_PDF} target='_blank' rel="noreferrer" className='c-textLink01'>アクセス案内はこちら</a>
-            </div>
-
-            <h2 className='c-title01'>BUS<p className='c-title01__ja'>シャトルバスのご案内</p></h2>
-            
-            <p className='c-text01'>Comming Soon...<br/>式の1ヶ月前に時刻表を掲載します。</p>
-          </div>
-        </section>
-
         <section className='l-facility'>
           <div className='l-facility__wrap'>
             <h2 className='c-title01'>Facility information<p className='c-title01__ja'>会場施設のご案内</p></h2>
@@ -161,7 +162,9 @@ function App() {
         </section>
 
         <section className='l-profile'>
-          <img src="/dummy/img02.png" alt="新郎新婦のプロフィール画像" className='l-profile__image' />
+          <div className='l-profile__image'>
+            <img src="/prod/img_profile01.jpg" alt="新郎新婦のプロフィール画像" className='l-profile__imagePic' />
+          </div>
           <div className='l-profile__wrap'>
             <div className='l-profile__groom'>
               <h3>GROOM</h3>
@@ -275,12 +278,26 @@ function App() {
 
         <section className='l-gallery'>
           <div className='l-gallery__wrap'>
-            <h2 className='c-title01'>GALLERY</h2>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
+            <h2 className='c-title01'>GALLERY<p className='c-title01__ja'>ギャラリー</p></h2>
+            <Swiper
+              watchSlidesProgress={true}
+              slidesPerView={2}
+              autoplay={{delay: 1000}}
+              loop={true}
+              modules={[Autoplay]}
+              speed={3000}
+              navigation
+              pagination={{ clickable: true }}
+              className="mySwiper"
+            >
+              <SwiperSlide><img src="/prod//gallery/img01.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
+              <SwiperSlide><img src="/prod/gallery/img02.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
+              <SwiperSlide><img src="/prod/gallery/img03.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
+              <SwiperSlide><img src="/prod/gallery/img04.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
+              <SwiperSlide><img src="/prod/gallery/img05.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
+              <SwiperSlide><img src="/prod/gallery/img06.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
+              <SwiperSlide><img src="/prod/gallery/img07.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
+            </Swiper>
           </div>
         </section>
 
