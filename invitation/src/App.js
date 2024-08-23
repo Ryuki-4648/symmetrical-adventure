@@ -4,61 +4,31 @@ import { useState } from 'react';
 
 import GiftMoneyModal from './components/GiftMoneyModal';
 import Header from './components/Header';
-
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/effect-creative';
-
-// import required modules
-import { Autoplay, EffectCreative } from 'swiper/modules';
-
+import MvSlider from './components/MvSlider';
+import GallerySlider from './components/GallerySlider';
 
 function App() {
 
   // ご祝儀モーダル
   const [giftMoneyModal, setGiftMoneyModal] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState(''); // 新郎か新婦かを保持する状態
+  const [overlay, setOverlay] = useState(false);
 
   const handleClickGiftMoneyModal = (groomOrBride) => {
     setSelectedPerson(groomOrBride);
     setGiftMoneyModal(true);
+    setOverlay(true);
   }
 
   return (
     <div className='l-container'>
+      {overlay && <div className='l-overlay'></div>}
       <Header />
 
       <main className='l-main'>
         <div className='l-main__mv'>
           <h2 className='l-main__date'>DEC.14<br />/24</h2>
-          <Swiper
-            grabCursor={true}
-            effect={'creative'}
-            loop={true}
-            autoplay={{delay: 4200}}
-            speed={1000}  
-            creativeEffect={{
-              prev: {
-                shadow: true,
-                translate: [0, 0, -400],
-              },
-              next: {
-                translate: ['100%', 0, 0],
-              },
-            }}
-            modules={[EffectCreative, Autoplay]}
-            className="mySwiper"
-          >
-            <SwiperSlide><img src="/prod/img01.jpg" alt="トップのメイン画像" className='main-image' /></SwiperSlide>
-            <SwiperSlide><img src="/prod/img02.jpg" alt="トップのメイン画像" className='main-image' /></SwiperSlide>
-            <SwiperSlide><img src="/prod/img03.jpg" alt="トップのメイン画像" className='main-image' /></SwiperSlide>
-            <SwiperSlide><img src="/prod/img04.jpg" alt="トップのメイン画像" className='main-image' /></SwiperSlide>
-            <SwiperSlide><img src="/prod/img05.jpg" alt="トップのメイン画像" className='main-image' /></SwiperSlide>
-            <SwiperSlide><img src="/prod/img06.jpg" alt="トップのメイン画像" className='main-image' /></SwiperSlide>
-          </Swiper>
+          <MvSlider />
           
         </div>
 
@@ -135,7 +105,7 @@ function App() {
             {/* <p onClick={handleClickGiftMoneyModal('groom')} className=''>銀行振込情報（新郎側）はこちら</p>
             <p onClick={handleClickGiftMoneyModal('bride')}>銀行振込情報（新婦側）はこちら</p> */}
             {/* onClickに関数の参照を渡すために、アロー関数を使用 */}
-            <button className='c-button02' onClick={() => handleClickGiftMoneyModal('groom')}>銀行振込情報（新郎側）はこちら</button>
+            <button className='c-button02' onClick={() => handleClickGiftMoneyModal('groom')} >銀行振込情報（新郎側）はこちら</button>
             <button className='c-button02' onClick={() => handleClickGiftMoneyModal('bride')}>銀行振込情報（新婦側）はこちら</button>
             {/* <p onClick={() => handleClickGiftMoneyModal('groom')} className='l-gift__click'>銀行振込情報（新郎側）はこちら</p>
             <p onClick={() => handleClickGiftMoneyModal('bride')} className='l-gift__click'>銀行振込情報（新婦側）はこちら</p> */}
@@ -279,25 +249,7 @@ function App() {
         <section className='l-gallery'>
           <div className='l-gallery__wrap'>
             <h2 className='c-title01'>GALLERY<p className='c-title01__ja'>ギャラリー</p></h2>
-            <Swiper
-              watchSlidesProgress={true}
-              slidesPerView={2}
-              autoplay={{delay: 1000}}
-              loop={true}
-              modules={[Autoplay]}
-              speed={3000}
-              navigation
-              pagination={{ clickable: true }}
-              className="mySwiper"
-            >
-              <SwiperSlide><img src="/prod//gallery/img01.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
-              <SwiperSlide><img src="/prod/gallery/img02.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
-              <SwiperSlide><img src="/prod/gallery/img03.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
-              <SwiperSlide><img src="/prod/gallery/img04.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
-              <SwiperSlide><img src="/prod/gallery/img05.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
-              <SwiperSlide><img src="/prod/gallery/img06.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
-              <SwiperSlide><img src="/prod/gallery/img07.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
-            </Swiper>
+            <GallerySlider />
           </div>
         </section>
 
