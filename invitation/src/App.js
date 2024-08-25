@@ -1,6 +1,6 @@
 import './App.scss';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import GiftMoneyModal from './components/GiftMoneyModal';
 import Header from './components/Header';
@@ -13,20 +13,46 @@ function App() {
   const [giftMoneyModal, setGiftMoneyModal] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState(''); // 新郎か新婦かを保持する状態
   const [overlay, setOverlay] = useState(false);
-
+  
   const handleClickGiftMoneyModal = (groomOrBride) => {
     setSelectedPerson(groomOrBride);
     setGiftMoneyModal(true);
     setOverlay(true);
   }
 
+  // スクロール監視
+  const [headerMenu, setHeaderMenu] = useState(false);
+  const mainImageRef = useRef(null);
+  const [mainImageHeight, setMainImageHeight] = useState(0);
+
+  useEffect(() => {
+    if (mainImageRef.current) {
+      setMainImageHeight(mainImageRef.current.offsetHeight);
+    }
+
+    const handleScroll = () => {
+      if (window.scrollY > mainImageHeight) {
+        setHeaderMenu(true);
+      } else {
+        setHeaderMenu(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // クリーンアップ関数
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [mainImageHeight]);
+
   return (
     <div className='l-container'>
       {overlay && <div className='l-overlay'></div>}
-      <Header />
+      <Header headerMenu={headerMenu} />
 
       <main className='l-main'>
-        <div className='l-main__mv'>
+        <div className='l-main__mv' ref={mainImageRef}>
           <h2 className='l-main__date'>DEC.14<br />/24</h2>
           <MvSlider />
           
@@ -78,7 +104,7 @@ function App() {
           <div className='l-access__wrap'>
             <h2 className='c-title01'>ACCSESS<p className='c-title01__ja'>アクセス</p></h2>
             <div className='l-access__gmap'>
-              <iframe title='Google Map' className='l-access__iframe' src={process.env.REACT_APP_WEDDING_PLACE_GMAP} width="100%" height="300" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+              <iframe title='Google Map' className='l-access__iframe' src={process.env.REACT_APP_WEDDING_PLACE_GMAP} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
               <p className='c-text02'>シャトルバスやお車でのお越しをおすすめします。</p>
               <a href={process.env.REACT_APP_WEDDING_PLACE_PDF} target='_blank' rel="noreferrer" className='c-textLink01'>アクセス案内はこちら</a>
             </div>
@@ -221,8 +247,8 @@ function App() {
           </div>
         </section>
 
-        <section className='l-setting'>
-          <div className='l-setting__wrap'>
+        {/* <section className='l-seeting'>
+          <div className='l-seeting__wrap'>
             <h2 className='c-title01'>SEETING CHART<p className='c-title01__ja'>席次表</p></h2>
             <p className='c-text01'>Comming Soon...</p>
             <p>PDFで開きます</p>
@@ -244,7 +270,7 @@ function App() {
             <p className='c-text01'>Comming Soon...</p>
             <button className='c-button01' disabled>ドリンクメニューを見る</button>
           </div>
-        </section>
+        </section> */}
 
         <section className='l-gallery'>
           <div className='l-gallery__wrap'>
