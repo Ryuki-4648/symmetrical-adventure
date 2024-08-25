@@ -9,25 +9,32 @@ import 'swiper/css/effect-creative';
 import { Autoplay } from 'swiper/modules';
 
 function GallerySlider() {
+
+  /* 画像ファイル名生成 */
+  /**
+   * Array.from()メソッド: 画像ファイル名のリストを動的に生成。
+   * 第1引数には、配列の長さを指定。
+   * 第2引数は、マップ関数。生成された配列の各要素に対してこの関数が呼び出される。
+   */
+  const imageFileName = Array.from({ length: 9 }, (_, i) => `/prod/gallery/img${String(i + 1).padStart(2, '0')}.jpg`);
+
   return (
     <Swiper
     watchSlidesProgress={true}
-    slidesPerView={2}
-    autoplay={{delay: 1000}}
-    loop={true}
+    slidesPerView={3}
+    // autoplay={{delay: 1000}}
+    loop={false}
     modules={[Autoplay]}
-    speed={3000}
+    // speed={3000}
     navigation
     pagination={{ clickable: true }}
     className="mySwiper"
   >
-    <SwiperSlide><img src="/prod//gallery/img01.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
-    <SwiperSlide><img src="/prod/gallery/img02.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
-    <SwiperSlide><img src="/prod/gallery/img03.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
-    <SwiperSlide><img src="/prod/gallery/img04.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
-    <SwiperSlide><img src="/prod/gallery/img05.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
-    <SwiperSlide><img src="/prod/gallery/img06.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
-    <SwiperSlide><img src="/prod/gallery/img07.jpg" alt="ギャラリー画像" className='l-gallery__image' /></SwiperSlide>
+    {imageFileName.map((src, index) => (
+      <SwiperSlide key={index}>
+        <img src={src} alt={`ギャラリー画像 ${index + 1}`} className='l-gallery__image' />
+      </SwiperSlide>
+    ))}
   </Swiper>
   )
 }
