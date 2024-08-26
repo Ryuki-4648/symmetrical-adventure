@@ -6,10 +6,11 @@ import GiftMoneyModal from './components/GiftMoneyModal';
 import Header from './components/Header';
 import MvSlider from './components/MvSlider';
 import GallerySlider from './components/GallerySlider';
+import TopButton from './components/TopButton';
 
 function App() {
 
-  // ご祝儀モーダル
+  /* ご祝儀モーダル */
   const [giftMoneyModal, setGiftMoneyModal] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState(''); // 新郎か新婦かを保持する状態
   const [overlay, setOverlay] = useState(false);
@@ -20,10 +21,11 @@ function App() {
     setOverlay(true);
   }
 
-  // スクロール監視
+  /* ヘッダーメニュー */
   const [headerMenu, setHeaderMenu] = useState(false);
   const mainImageRef = useRef(null);
   const [mainImageHeight, setMainImageHeight] = useState(0);
+  const [topButton, setTopButton] = useState(false);
 
   useEffect(() => {
     if (mainImageRef.current) {
@@ -33,8 +35,10 @@ function App() {
     const handleScroll = () => {
       if (window.scrollY > mainImageHeight) {
         setHeaderMenu(true);
+        setTopButton(true);
       } else {
         setHeaderMenu(false);
+        setTopButton(false);
       }
     };
 
@@ -45,6 +49,9 @@ function App() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [mainImageHeight]);
+
+  /* トップへ戻る */
+
 
   return (
     <div className='l-container'>
@@ -117,7 +124,7 @@ function App() {
 
         <section className='l-rsvp'>
           <h2 className='c-title01'>RSVP</h2>
-          <button className='l-rsvp__button'>出欠情報を回答する</button>
+          <a className='l-rsvp__button' href={process.env.REACT_APP_SITE_URL} target='_blank' rel="noreferrer">出欠情報を回答する</a>
           <p className='c-text02'>誠に勝手ながら10月11日（金）までに<br />お返事をいただければ幸いに存じます</p>
           <p className='c-text02'>期日以降、万が一変更がある場合はお手数ですが直接ご連絡ください</p>
         </section>
@@ -283,6 +290,8 @@ function App() {
         {giftMoneyModal && (
           <GiftMoneyModal selectedPerson={selectedPerson} onClose={() => setGiftMoneyModal(false)} />
         )}
+
+        <TopButton topButton={topButton} />
       </main>
     </div>
   );
