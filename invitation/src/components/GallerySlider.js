@@ -8,7 +8,7 @@ import 'swiper/css/effect-creative';
 // import required modules
 import { Autoplay } from 'swiper/modules';
 import { useState } from 'react';
-import { Modal } from '@chakra-ui/react';
+import Modal from 'react-modal';
 
 function GallerySlider() {
 
@@ -54,7 +54,7 @@ function GallerySlider() {
     <>
       <ul className='c-gallery'>
         {imageFileName.map((src, index) => (
-          <li className='c-gallery__item' onClick={handleOpenModal(src)}>
+          <li key={index} className='c-gallery__item' onClick={() => handleOpenModal(src)}>
             <img src={src} alt={`ギャラリー画像 ${index + 1}`} className='c-gallery__image' />
           </li>
         ))}

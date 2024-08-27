@@ -154,8 +154,11 @@
 
   /* */
   &outline {
-    padding: 7.2rem 1.6rem 5.2rem;
+    padding: 7.2rem 0 5.2rem;
+    margin: 0 1.6rem;
+    border-bottom: 1px solid #ebebeb;
     &__wrap {
+      
     }
     &__date {
       display: flex;
@@ -324,6 +327,12 @@
         border-radius: 20px;
         margin: 2rem auto 0;
       }
+      &__title {
+        font-size: 1.8rem;
+        font-family: "Outfit", sans-serif;
+        font-weight: 600;
+        margin: 0 auto 1.6rem;
+      }
       dl {
         display: flex;
         &:last-of-type {
@@ -332,9 +341,11 @@
       }
       dt {
         font-size: 1.3rem;
+        width: 8rem;
       }
       dd {
         font-size: 1.3rem;
+        margin: 0;
       }
     }
   }
@@ -406,8 +417,8 @@
     }
     &02 {
       border: none;
-      color: #212121;
-      background-color: #ddd;
+      border: 1px solid #212121;
+      background-color: #fafafa;
       width: 240px;
       height: 36px;
       display: flex;
@@ -415,6 +426,9 @@
       align-items: center;
       margin: 0 auto 1rem;
       // cursor: pointer;
+      &:not(:last-child) {
+        margin-top: 2rem;
+      }
     }
     &Top {
       width: 40px;
@@ -482,6 +496,28 @@
       font-size: 1.3rem;
       text-align: left;
       line-height: 2;
+    }
+  }
+  &gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
+    }
+  }
+  &modal {
+    max-width: 360px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }
