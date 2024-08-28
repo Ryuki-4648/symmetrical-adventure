@@ -3,7 +3,7 @@ import React from 'react';
 function GiftMoneyModal({ selectedPerson, onClose }) {
   return (
     <div className='l-giftModal'>
-      <h2>GIFT MONEY</h2>
+      <h2 className='l-giftModal__title'>GIFT MONEY</h2>
       <dl>
         <dt>銀行名</dt>
         <dd>{selectedPerson === 'groom' ? process.env.REACT_APP_GROOM_BANK : process.env.REACT_APP_BRIDE_BANK}</dd>
@@ -22,7 +22,7 @@ function GiftMoneyModal({ selectedPerson, onClose }) {
       </dl>
       <p className='c-text02'>
         手数料を除いた金額をお振込ください。<br />
-        お振込いただいた方は、ご連絡いただけますと幸いです。
+        お振込後にご連絡いただけますと幸いです
       </p>
       <button onClick={onClose} className='l-giftModal__button'>閉じる</button>
     </div>

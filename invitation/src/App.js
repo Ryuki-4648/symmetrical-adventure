@@ -112,8 +112,10 @@ function App() {
             <h2 className='c-title01'>ACCSESS<p className='c-title01__ja'>アクセス</p></h2>
             <div className='l-access__gmap'>
               <iframe title='Google Map' className='l-access__iframe' src={process.env.REACT_APP_WEDDING_PLACE_GMAP} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-              <p className='c-text02'>シャトルバスやお車でのお越しをおすすめします。</p>
-              <a href={process.env.REACT_APP_WEDDING_PLACE_PDF} target='_blank' rel="noreferrer" className='c-textLink01'>アクセス案内はこちら</a>
+              {/* <p className='c-text02'>シャトルバスやお車でのお越しをおすすめします。</p> */}
+              <a href={process.env.REACT_APP_WEDDING_PLACE_PDF} target='_blank' rel="noreferrer" className='c-textLink01'>
+                アクセス案内はこちら<span className="material-symbols-outlined">open_in_new</span>
+              </a>
             </div>
 
             <h2 className='c-title01'>BUS<p className='c-title01__ja'>シャトルバスのご案内</p></h2>
@@ -135,13 +137,9 @@ function App() {
             
             <p className='c-text02'>銀行振込もしくは当日持参でお願いいたします</p>
             
-            {/* <p onClick={handleClickGiftMoneyModal('groom')} className=''>銀行振込情報（新郎側）はこちら</p>
-            <p onClick={handleClickGiftMoneyModal('bride')}>銀行振込情報（新婦側）はこちら</p> */}
             {/* onClickに関数の参照を渡すために、アロー関数を使用 */}
-            <button className='c-button02' onClick={() => handleClickGiftMoneyModal('groom')} >銀行振込情報（新郎側）はこちら</button>
+            <button className='c-button02' onClick={() => handleClickGiftMoneyModal('groom')}>銀行振込情報（新郎側）はこちら</button>
             <button className='c-button02' onClick={() => handleClickGiftMoneyModal('bride')}>銀行振込情報（新婦側）はこちら</button>
-            {/* <p onClick={() => handleClickGiftMoneyModal('groom')} className='l-gift__click'>銀行振込情報（新郎側）はこちら</p>
-            <p onClick={() => handleClickGiftMoneyModal('bride')} className='l-gift__click'>銀行振込情報（新婦側）はこちら</p> */}
           </div>
         </section>
 
@@ -288,7 +286,13 @@ function App() {
 
         {/** ご祝儀モーダル */}
         {giftMoneyModal && (
-          <GiftMoneyModal selectedPerson={selectedPerson} onClose={() => setGiftMoneyModal(false)} />
+          <GiftMoneyModal
+            selectedPerson={selectedPerson}
+            onClose={() => {
+              setGiftMoneyModal(false)
+              setOverlay(false)
+            }}
+          />
         )}
 
         <TopButton topButton={topButton} />
