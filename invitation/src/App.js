@@ -7,6 +7,7 @@ import Header from './components/Header';
 import MvSlider from './components/MvSlider';
 import GallerySlider from './components/GallerySlider';
 import TopButton from './components/TopButton';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -65,7 +66,7 @@ function App() {
           
         </div>
 
-        <h1 className=''>Wedding<br />Invitation</h1>
+        <h1 className='l-main__title'>Wedding<br />Invitation</h1>
 
         <section className='l-greeting'>
           <div className='l-greeting__wrap'>
@@ -297,6 +298,8 @@ function App() {
 
         <TopButton topButton={topButton} />
       </main>
+
+      <Footer />
     </div>
   );
 }

@@ -14,7 +14,7 @@
 # images(本番用写真データ)
 /public/prod
 
-# env
+# env（個人情報記載用）
 .env
 
 # misc

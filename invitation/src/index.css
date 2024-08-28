@@ -38,3 +38,8 @@ ul, li {
 iframe {
   border: none;
 }
+
+.material-symbols-outlined {
+  font-size: 1.6rem;
+  vertical-align: sub;
+}

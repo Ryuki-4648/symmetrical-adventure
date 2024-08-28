@@ -7,7 +7,7 @@
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.6);
-      z-index: 0;
+      z-index: 1;
   }
   &container {
     position: relative;
@@ -17,8 +17,8 @@
   &header {
     max-width: 400px;
     position: absolute;
-    right: 4rem;
-    top: 1.4rem;
+    right: 4.8rem;
+    top: 1.6rem;
     width: 400px;
     z-index: 10;
     text-align: right;
@@ -28,7 +28,7 @@
       }
     }
     &Content {
-      background-color: #D9A6A6;
+      background-color: #e3a1a1;
       width: 100%;
       height: 100%;
       position: fixed;
@@ -85,13 +85,20 @@
       color: #fafafa;
       font-weight: 800;
       background-color: transparent;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       letter-spacing: .08em;
       line-height: 1.2;
       margin: 0;
       padding: 0;
       // filter: drop-shadow(2px 4px 2px rgba(0, 0, 0, 0.2));
     }
+  }
+  &footer {
+    background-color: #ebebeb;
+    padding: 4.8rem 1.6rem;
+    font-family: "Outfit", sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: .05em;
   }
   &main {
     background-color: #fafafa;
@@ -101,6 +108,17 @@
     position: relative;
     &__mv {
       position: relative;
+    }
+    &__title {
+      font-size: 2.4rem;
+      font-family: "Outfit", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 600;
+      font-style: normal;
+      margin: 6rem auto 8rem;
+      letter-spacing: .02em;
+      max-width: 360px;
+      padding: 0 1.6rem;
     }
     &__date {
       font-family: "Outfit", sans-serif;
@@ -124,18 +142,6 @@
       object-fit: cover;
       object-position: bottom;
     }
-
-    h1 {
-      font-size: 1.8rem;
-      font-family: "Outfit", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 600;
-      font-style: normal;
-      margin: 1.8rem auto 4rem;
-      letter-spacing: .02em;
-      max-width: 360px;
-      padding: 0 1.6rem;
-    }
   }
   &greeting {
     text-align: center;
@@ -152,9 +158,9 @@
     }
   }
 
-  /* */
+  /* 概要 */
   &outline {
-    padding: 7.2rem 0 5.2rem;
+    padding: 8.6rem 0 5.2rem;
     margin: 0 1.6rem;
     border-bottom: 1px solid #ebebeb;
     &__wrap {
@@ -191,14 +197,14 @@
       margin: 0;
       line-height: 1.8;
       dt {
-        font-size: 1.8rem;
+        font-size: 2.1rem;
       }
       dd {
-        font-size: 1.8rem;
+        font-size: 2.1rem;
       }
     }
     &__place {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       letter-spacing: .02em;
       font-weight: 600;
       margin: .5rem auto 1rem;
@@ -208,19 +214,19 @@
   &rsvp {
     background-color: #ebebeb;
     padding: 6rem 1.6rem 3.6rem;
-    margin: 0 auto 4rem;
+    margin: 0 auto;
     &__button {
       width: 100%;
-      height: 42px;
+      height: 48px;
       margin: 2rem auto 3rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       font-family: "Noto Serif JP", serif;
       font-weight: 600;
       letter-spacing: .05em;
-      background-color: #D9A6A6;
+      background-color: #e3a1a1;
       border: none;
       color: #333;
     }
@@ -296,8 +302,11 @@
   }
 
   &gift {
+    padding: 4.8rem 0;
+    margin: 0 1.6rem;
+    border-bottom: 1px solid #ebebeb;
     &__wrap {
-      padding: 0 1.6rem;
+      padding: 0;
     }
     &__click {
       cursor: pointer;
@@ -314,6 +323,7 @@
       border-radius: 20px;
       background: #ebebeb;
       border: 1px solid #212121;
+      z-index: 2;
       &__button {
         cursor: pointer;
         display: flex;
@@ -393,11 +403,12 @@
 .c- {
   &textLink {
     &01 {
-      color: #D9A6A6;
-      border-bottom: 1px solid #D9A6A6;
+      font-family: "Noto Sans JP", sans-serif;
+      color: #e3a1a1;
+      border-bottom: 1px solid #e3a1a1;
       font-weight: 600;
       font-size: 1.3rem;
-      margin: 0 auto 1.2rem;
+      margin: .6rem auto 2.4rem;
       display: inline-block;
     }
   }
@@ -416,16 +427,21 @@
       // cursor: pointer;
     }
     &02 {
+      font-family: "Noto Serif JP", serif;
       border: none;
       border: 1px solid #212121;
-      background-color: #fafafa;
+      // background-color: #fafafa;
+      background-color: #ebebeb;
       width: 240px;
       height: 36px;
       display: flex;
       justify-content: center;
       align-items: center;
       margin: 0 auto 1rem;
-      // cursor: pointer;
+      cursor: pointer;
+      &:hover {
+        background-color: #fafafa;
+      }
       &:not(:last-child) {
         margin-top: 2rem;
       }
@@ -471,6 +487,8 @@
       font-family: "Outfit", sans-serif;
       font-weight: 600;
       font-size: 2.4rem;
+      text-transform: uppercase;
+      letter-spacing: .03em;
       &__ja {
         font-weight: 400;
         font-family: "Noto Serif JP", serif;
@@ -501,6 +519,13 @@
   &gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    &__item {
+      cursor: pointer;
+      transition: all .3s;
+      &:hover {
+        filter: grayscale(80%);
+      }
+    }
     &__image {
       width: 100%;
       height: 100%;
@@ -514,10 +539,15 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: #fafafa;
+    padding: 1.6rem;
     &__image {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+    &__close {
+      @extend .l-giftModal__button
     }
   }
 }
