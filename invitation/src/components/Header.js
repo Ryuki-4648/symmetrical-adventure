@@ -1,14 +1,30 @@
 import React from 'react';
 
 function Header({headerMenu}) {
+
+  /* メニュー */
+  const headerMenuList = [
+      {name: 'Top', url: '/'},
+      {name: 'Date', url: '#date'},
+      {name: 'Access', url: '#access'},
+      {name: 'Rsvp', url: '#rsvp'},
+      {name: 'Gift money', url: '#gift'},
+      {name: 'Facility Information', url: '#facility'},
+      // {name: 'Profile', url: '#prof'},
+  ];
+
+  /* ハンバーガーメニュー */
+  const headerContent = document.querySelector('.l-headerContent');
+  const headerNav = document.querySelector('.l-headerNav');
+
   const handleClickHeaderButton = () => {
-    const headerContent = document.querySelector('.l-headerContent');
     headerContent.classList.add('is-open');
-  }
+    headerNav.classList.add('is-open');
+  };
   const handleCloseHeaderContent = () => {
-    const headerContent = document.querySelector('.l-headerContent');
     headerContent.classList.remove('is-open');
-  }
+  };
+
   return (
     <>
       <header className={`l-header ${headerMenu ? 'is-active' : ''}`} onClick={handleClickHeaderButton}>
@@ -21,6 +37,15 @@ function Header({headerMenu}) {
           <span className='l-headerContent__buttonBorder'></span>
           <p className='l-headerContent__buttonText'>Close</p>
         </button>
+        <nav className='l-headerNav'>
+          <ul className='l-headerNav__list'>
+            {headerMenuList.map((menu, index) => (
+              <li className='l-headerNav__item'>
+                <a href={menu.url} className='l-headerNav__link'>{menu.name}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </>
   )

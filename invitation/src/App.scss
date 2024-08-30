@@ -28,7 +28,7 @@
       }
     }
     &Content {
-      background-color: var(--color-accent);
+      background-color: var(--color-background);
       width: 100%;
       height: 100%;
       position: fixed;
@@ -37,22 +37,30 @@
       z-index: 20;
       opacity: 0;
       visibility: hidden;
-      transition: all .3s;
+      transition: var(--transition);
+      padding: 7.2rem 0 2rem;
       &__button {
         width: 4rem;
         height: 4rem;
         cursor: pointer;
         position: absolute;
         top: 1rem;
-        right: 1rem;
+        right: 1.6rem;
         border: none;
         background-color: transparent;
+        transition: var(--transition);
+        &:hover {
+          .l-headerContent__buttonBorder {
+            background-color: var(--color-accent);
+          }
+        }
         &Border {
-          background-color: var(--color-base);
+          background-color: var(--color-text);
           height: 2px;
           width: 2.8rem;
           display: block;
           position: absolute;
+          transition: var(--transition);
           &:nth-child(1) {
             transform: rotate(45deg);
             top: 1.6rem;
@@ -64,13 +72,17 @@
         }
         &Text {
           font-size: 1rem;
-          color: var(--color-base);
+          color: var(--color-text);
           top: 3.3rem;
           right: 0.1rem;
           position: absolute;
           letter-spacing: .05em;
           text-transform: uppercase;
           font-weight: 600;
+          transition: var(--transition);
+          &:hover {
+            color: var(--color-accent);
+          }
         }
       }
       &.is-open {
@@ -79,6 +91,25 @@
       }
     }
     &Nav {
+      &__list {
+        padding: 0 1.6rem;
+      }
+      &__item {
+        
+      }
+      &__link {
+        color: var(--color-text);
+        font-size: 1.5rem;
+        letter-spacing: .05em;
+        padding: 1.6rem;
+        font-family: var(--font-family-outfit);
+        display: flex;
+        border-bottom: 0.5px solid rgba($color: #000, $alpha: .5);
+        transition: var(--transition);
+        &:hover {
+          color: var(--color-accent);
+        }
+      }
       &.is-open {
 
       }
@@ -322,9 +353,9 @@
       left: 50%;
       transform: translate(-50%, -50%);
       width: 80%;
-      max-width: 340px;
-      padding: 20px;
-      border-radius: 20px;
+      max-width: 34rem;
+      padding: 2rem;
+      border-radius: 2rem;
       background: var(--color-background);
       border: 1px solid #212121;
       z-index: 2;
@@ -336,9 +367,9 @@
         margin: 0 auto;
         border: none;
         border: 1px solid #212121;
-        width: 200px;
-        height: 28px;
-        border-radius: 20px;
+        width: 20rem;
+        height: 3.6rem;
+        border-radius: 2rem;
         margin: 2rem auto 0;
       }
       &__title {
@@ -433,7 +464,7 @@
     &02 {
       font-family: var(--font-family-noto-serif-jp);
       border: none;
-      border: 1px solid #212121;
+      // border: 1px solid #212121;
       // background-color: var(--color-base);
       background-color: var(--color-background);
       width: 240px;
@@ -441,13 +472,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0 auto 1rem;
+      margin: 0 auto;
       cursor: pointer;
       &:hover {
         background-color: var(--color-base);
       }
       &:not(:last-child) {
-        margin-top: 2rem;
+        margin-bottom: 2rem;
+        margin-top: 2.4rem;
       }
     }
     &Top {
@@ -461,7 +493,7 @@
       bottom: 1.6rem;
       opacity: 0;
       visibility: hidden;
-      transition: all .3s;
+      transition: var(--transition);
       z-index: 10;
       cursor: pointer;
       &:hover {
@@ -525,7 +557,7 @@
     grid-template-columns: repeat(3, 1fr);
     &__item {
       cursor: pointer;
-      transition: all .3s;
+      transition: var(--transition);
       &:hover {
         filter: grayscale(80%);
       }
@@ -538,6 +570,7 @@
     }
   }
   &modal {
+    width: 85%;
     max-width: 360px;
     position: fixed;
     top: 50%;
@@ -545,13 +578,16 @@
     transform: translate(-50%, -50%);
     background-color: var(--color-base);
     padding: 1.6rem;
+    border-radius: .8rem;
+    z-index: 11;
     &__image {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
     &__close {
-      @extend .l-giftModal__button
+      @extend .l-giftModal__button;
+      height: 3.6rem;
     }
   }
 }
