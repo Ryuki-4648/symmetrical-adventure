@@ -1,16 +1,7 @@
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/effect-creative';
-
-// import required modules
-import { Autoplay } from 'swiper/modules';
 import { useState } from 'react';
 import Modal from 'react-modal';
 
-function GallerySlider() {
+function GallerySlider({handleOpenOverlay, handleCloseOverlay}) {
 
   /* 画像ファイル名生成 */
   /**
@@ -27,30 +18,15 @@ function GallerySlider() {
   const handleOpenModal = (targetImage) => {
     setModalOpen(true);
     setSelectedImage(targetImage);
+    handleOpenOverlay();
   };
   const handleCloseModal = () => {
     setModalOpen(false);
     setSelectedImage('');
+    handleCloseOverlay();
   }
 
   return (
-    // <Swiper
-    //   watchSlidesProgress={true}
-    //   slidesPerView={3}
-    //   // autoplay={{delay: 1000}}
-    //   loop={false}
-    //   modules={[Autoplay]}
-    //   // speed={3000}
-    //   navigation
-    //   pagination={{ clickable: true }}
-    //   className="mySwiper"
-    // >
-    //   {imageFileName.map((src, index) => (
-    //     <SwiperSlide key={index}>
-    //       <img src={src} alt={`ギャラリー画像 ${index + 1}`} className='l-gallery__image' />
-    //     </SwiperSlide>
-    //   ))}
-    // </Swiper>
     <>
       <ul className='c-gallery'>
         {imageFileName.map((src, index) => (

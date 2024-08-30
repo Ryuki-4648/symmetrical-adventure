@@ -81,7 +81,7 @@ function App() {
           </div>
         </section>
 
-        <section className='l-outline'>
+        <section className='l-outline' id="date">
           <div className='l-outline__wrap'>
             <div className='l-outline__date'>
               <p className='l-outline__dateText'>{process.env.REACT_APP_WEDDING_DATE}</p>
@@ -108,7 +108,7 @@ function App() {
           </div>
         </section>
 
-        <section className='l-access'>
+        <section className='l-access' id="access">
           <div className='l-access__wrap'>
             <h2 className='c-title01'>ACCSESS<p className='c-title01__ja'>アクセス</p></h2>
             <div className='l-access__gmap'>
@@ -125,14 +125,14 @@ function App() {
           </div>
         </section>
 
-        <section className='l-rsvp'>
+        <section className='l-rsvp' id="rsvp">
           <h2 className='c-title01'>RSVP</h2>
           <a className='l-rsvp__button' href={process.env.REACT_APP_SITE_URL} target='_blank' rel="noreferrer">出欠情報を回答する</a>
           <p className='c-text02'>誠に勝手ながら10月11日（金）までに<br />お返事をいただければ幸いに存じます</p>
           <p className='c-text02'>期日以降、万が一変更がある場合はお手数ですが直接ご連絡ください</p>
         </section>
 
-        <section className='l-gift'>
+        <section className='l-gift' id="gift">
           <div className='l-gift__wrap'>
             <h2 className='c-title01'>GIFT MONEY<p className='c-title01__ja'>ご祝儀について</p></h2>
             
@@ -144,7 +144,18 @@ function App() {
           </div>
         </section>
 
-        <section className='l-facility'>
+        {/** ご祝儀モーダル */}
+        {giftMoneyModal && (
+          <GiftMoneyModal
+            selectedPerson={selectedPerson}
+            onClose={() => {
+              setGiftMoneyModal(false)
+              setOverlay(false)
+            }}
+          />
+        )}
+
+        <section className='l-facility' id="facility">
           <div className='l-facility__wrap'>
             <h2 className='c-title01'>Facility information<p className='c-title01__ja'>会場施設のご案内</p></h2>
             <h3 className='c-title02'>受付</h3>
@@ -281,20 +292,12 @@ function App() {
         <section className='l-gallery'>
           <div className='l-gallery__wrap'>
             <h2 className='c-title01'>GALLERY<p className='c-title01__ja'>ギャラリー</p></h2>
-            <GallerySlider />
+            <GallerySlider
+              handleOpenOverlay={() => setOverlay(true)}
+              handleCloseOverlay={() => setOverlay(false)}
+            />
           </div>
         </section>
-
-        {/** ご祝儀モーダル */}
-        {giftMoneyModal && (
-          <GiftMoneyModal
-            selectedPerson={selectedPerson}
-            onClose={() => {
-              setGiftMoneyModal(false)
-              setOverlay(false)
-            }}
-          />
-        )}
 
         <TopButton topButton={topButton} />
       </main>
