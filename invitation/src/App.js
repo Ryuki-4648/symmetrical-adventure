@@ -127,7 +127,7 @@ function App() {
 
         <section className='l-rsvp' id="rsvp">
           <h2 className='c-title01'>RSVP</h2>
-          <a className='l-rsvp__button' href={process.env.REACT_APP_SITE_URL} target='_blank' rel="noreferrer">出欠情報を回答する</a>
+          <a className='l-rsvp__button' href={process.env.REACT_APP_FORM_URL} target='_blank' rel="noreferrer">出欠情報を回答する</a>
           <p className='c-text02'>誠に勝手ながら10月11日（金）までに<br />お返事をいただければ幸いに存じます</p>
           <p className='c-text02'>期日以降、万が一変更がある場合はお手数ですが直接ご連絡ください</p>
         </section>
