@@ -21,7 +21,7 @@ function GiftMoneyModal({ selectedPerson, onClose }) {
         <dd>{selectedPerson === 'groom' ? process.env.REACT_APP_GROOM_NAME_KANA : process.env.REACT_APP_BRIDE_NAME_KANA}</dd>
       </dl>
       <p className='c-text02'>
-        手数料を除いた金額をお振込ください。<br />
+        手数料を除いた金額をお振込ください<br />
         お振込後にご連絡いただけますと幸いです
       </p>
       <button onClick={onClose} className='l-giftModal__button'>閉じる</button>

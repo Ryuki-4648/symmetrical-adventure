@@ -24,6 +24,9 @@ function Header({headerMenu}) {
   const handleCloseHeaderContent = () => {
     headerContent.classList.remove('is-open');
   };
+  const handleMenuClick = () => {
+    headerContent.classList.remove('is-open');
+  }
 
   return (
     <>
@@ -41,7 +44,7 @@ function Header({headerMenu}) {
           <ul className='l-headerNav__list'>
             {headerMenuList.map((menu, index) => (
               <li className='l-headerNav__item'>
-                <a href={menu.url} className='l-headerNav__link'>{menu.name}</a>
+                <a href={menu.url} className='l-headerNav__link' onClick={handleMenuClick}>{menu.name}</a>
               </li>
             ))}
           </ul>

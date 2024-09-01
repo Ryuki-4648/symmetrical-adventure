@@ -136,7 +136,7 @@ function App() {
           <div className='l-gift__wrap'>
             <h2 className='c-title01'>GIFT MONEY<p className='c-title01__ja'>ご祝儀について</p></h2>
             
-            <p className='c-text02'>銀行振込もしくは当日持参でお願いいたします</p>
+            <p className='c-text02'>当日会場にお持ちいただくことも可能ですが、銀行振込も承っております<br />よろしければご利用ください</p>
             
             {/* onClickに関数の参照を渡すために、アロー関数を使用 */}
             <button className='c-button02' onClick={() => handleClickGiftMoneyModal('groom')}>銀行振込情報（新郎側）はこちら</button>
