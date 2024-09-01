@@ -11,6 +11,8 @@ import { Autoplay, EffectCreative } from 'swiper/modules';
 
 function MvSlider() {
 
+  const gallerImageFileName = Array.from({ length: 6}, (_, i) => `/prod/img${String(i + 1).padStart(2, '0')}.jpg`)
+
   return (
     <Swiper
       grabCursor={true}
@@ -30,12 +32,9 @@ function MvSlider() {
       modules={[EffectCreative, Autoplay]}
       className="mySwiper"
     >
-      <SwiperSlide><img src="/prod/img01.jpg" alt="トップのメイン画像" className='main-image' /></SwiperSlide>
-      <SwiperSlide><img src="/prod/img02.jpg" alt="トップのメイン画像" className='main-image' /></SwiperSlide>
-      <SwiperSlide><img src="/prod/img03.jpg" alt="トップのメイン画像" className='main-image' /></SwiperSlide>
-      <SwiperSlide><img src="/prod/img04.jpg" alt="トップのメイン画像" className='main-image' /></SwiperSlide>
-      <SwiperSlide><img src="/prod/img05.jpg" alt="トップのメイン画像" className='main-image' /></SwiperSlide>
-      <SwiperSlide><img src="/prod/img06.jpg" alt="トップのメイン画像" className='main-image' /></SwiperSlide>
+      {gallerImageFileName.map((src, index) => (
+        <SwiperSlide key={index}><img src={src} alt="トップのメイン画像" className='main-image' /></SwiperSlide>
+      ))}
     </Swiper>
   )
 }
