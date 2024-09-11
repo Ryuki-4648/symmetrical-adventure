@@ -125,7 +125,7 @@
   }
   &footer {
     background-color: var(--color-background);
-    padding: 5.2rem 1.6rem;
+    padding: 7.2rem 1.6rem;
     font-family: var(--font-family-outfit);
     font-size: 1.1rem;
     letter-spacing: .05em;
@@ -140,19 +140,19 @@
       position: relative;
     }
     &__title {
-      font-size: 2.4rem;
+      font-size: 2.6rem;
       font-family: var(--font-family-outfit);
       font-optical-sizing: auto;
       font-weight: 600;
       font-style: normal;
-      margin: 6rem auto 8rem;
+      margin: 7.2rem auto 8.4rem;
       letter-spacing: .02em;
       max-width: 360px;
       padding: 0 1.6rem;
     }
     &__date {
       font-family: var(--font-family-outfit);
-      font-size: 5.2rem;
+      font-size: 5.4rem;
       position: absolute;
       right: 2.4rem;
       bottom: -9.2rem;
@@ -190,12 +190,9 @@
 
   /* 概要 */
   &outline {
-    padding: 8.6rem 0 5.2rem;
+    padding: 9rem 0 5.2rem;
     margin: 0 1.6rem;
     border-bottom: 1px solid var(--color-background);
-    &__wrap {
-      
-    }
     &__date {
       display: flex;
       align-items: flex-start;
@@ -220,6 +217,9 @@
       justify-content: center;
       line-height: 1;
       padding-bottom: 0.2rem;
+      &Text {
+        padding-bottom: 0.3rem;
+      }
     }
     &__schedule {
       display: flex;
@@ -263,7 +263,7 @@
   }
 
   &access {
-    padding: 4rem 0;
+    padding: 4rem 0 6rem;
     &__wrap {
       padding: 0 1.6rem;
     }
@@ -278,7 +278,7 @@
   }
 
   &facility {
-    padding: 4rem 0;
+    padding: 6rem 0;
     &__wrap {
       padding: 0 1.6rem;
     }
@@ -312,11 +312,10 @@
     }
     &__image {
       overflow: hidden;
+      margin: 0 auto 3.6rem;
       &Pic {
         transform: scale(1.2);
-
         width: 100%;
-        margin: 0 auto 3.6rem;
       }
     }
     &__groom, &__bride {
@@ -366,6 +365,9 @@
         border-radius: 2rem;
         margin: 2rem auto 0;
         color: var(--color-text);
+        &:hover {
+          background-color: var(--color-gray-light);
+        }
       }
       &__title {
         font-size: 1.8rem;
@@ -412,7 +414,7 @@
   }
 
   &gallery {
-    padding: 2rem 0 5.6rem;
+    padding: 2.4rem 0 5.6rem;
     &__wrap {
       padding: 0 1.6rem;
     }
@@ -472,7 +474,7 @@
       cursor: pointer;
       font-size: 1.4rem;
       &:hover {
-        background-color: var(--color-base);
+        background-color: var(--color-accent);
       }
       &:not(:last-child) {
         margin-bottom: 2rem;
@@ -542,6 +544,7 @@
     &01 {
       font-size: 1.3rem;
       text-align: center;
+      line-height: 1.8;
     }
     &02 {
       font-size: 1.3rem;

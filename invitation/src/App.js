@@ -85,7 +85,7 @@ function App() {
           <div className='l-outline__wrap'>
             <div className='l-outline__date'>
               <p className='l-outline__dateText'>{process.env.REACT_APP_WEDDING_DATE}</p>
-              <span className='l-outline__dayofweek'>Sat.</span>
+              <p className='l-outline__dayofweek'><span className='l-outline__dayofweekText'>Sat.</span></p>
             </div>
 
             <p className='countdown'></p>
@@ -128,15 +128,15 @@ function App() {
         <section className='l-rsvp' id="rsvp">
           <h2 className='c-title01'>RSVP</h2>
           <a className='l-rsvp__button' href={process.env.REACT_APP_FORM_URL} target='_blank' rel="noreferrer">出欠情報を回答する</a>
-          <p className='c-text02'>誠に勝手ながら10月11日（金）までに<br />お返事をいただければ幸いに存じます</p>
-          <p className='c-text02'>期日以降、万が一変更がある場合はお手数ですが直接ご連絡ください</p>
+          <p className='c-text02'>誠に勝手ながら、10月11日（金）までにお返事をいただければ幸いに存じます</p>
+          <p className='c-text02'>期日以降、変更がある場合はお手数ですが直接ご連絡ください</p>
         </section>
 
         <section className='l-gift' id="gift">
           <div className='l-gift__wrap'>
             <h2 className='c-title01'>GIFT MONEY<p className='c-title01__ja'>ご祝儀について</p></h2>
             
-            <p className='c-text02'>当日会場にお持ちいただくことも可能ですが、銀行振込も承っております<br />よろしければご利用ください</p>
+            <p className='c-text02'>銀行振込も承っておりますので、よろしければご利用ください</p>
             
             {/* onClickに関数の参照を渡すために、アロー関数を使用 */}
             <button className='c-button02' onClick={() => handleClickGiftMoneyModal('groom')}>銀行振込情報（新郎側）はこちら</button>
@@ -168,7 +168,7 @@ function App() {
             </p>
             <h3 className='c-title02'>授乳室</h3>
             <p className='c-text02'>
-              各フロア、披露宴会場にも授乳室がご用意ございます。<br />
+              各フロア、披露宴会場にも授乳室がご用意ございます<br />
               チャペル横の授乳室では、モニターにて挙式内容をリアルタイムにてご覧いただけます
             </p>
           </div>
