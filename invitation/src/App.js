@@ -8,6 +8,7 @@ import MvSlider from './components/MvSlider';
 import GallerySlider from './components/GallerySlider';
 import TopButton from './components/TopButton';
 import Footer from './components/Footer';
+import ClosureModal from './components/ClosureModal';
 
 function App() {
 
@@ -302,6 +303,7 @@ function App() {
         <TopButton topButton={topButton} />
       </main>
 
+      <ClosureModal />
       <Footer />
     </div>
   );
