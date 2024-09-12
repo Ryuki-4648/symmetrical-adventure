@@ -4,6 +4,9 @@ import dayjs from 'dayjs';
 function ClosureModal() {
 
 	const [closeModal, setCloseModal] = useState(false)
+	
+	// モーダルを一度閉じたことを記録
+	const [isModalDisplay, setIsModalDisplay] = useState(false)
 
 	const currentDate = dayjs()
 	const dueDate = dayjs('2024-12-15')
@@ -12,14 +15,15 @@ function ClosureModal() {
 	// モーダルを閉じるボタン
 	const handleCloseModal = () => {
 		setCloseModal(false)
+		setIsModalDisplay(true)
 	}
 
 	// 期日を過ぎたらモーダルを表示する
 	useEffect(() => {
-		if (currentDate.isAfter(dueDate)) {
+		if (currentDate.isAfter(dueDate) && !isModalDisplay) {
 			setCloseModal(true)
 		}
-	}, [currentDate, dueDate])
+	}, [currentDate, dueDate, isModalDisplay])
 
   return (
 		<>
