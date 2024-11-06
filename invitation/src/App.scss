@@ -302,6 +302,7 @@
       margin: 1rem auto .4rem;
       &En {
         font-size: 1.3rem;
+        letter-spacing: .025em;
       }
     }
     &__wrap {
@@ -322,7 +323,11 @@
       width: 50%;
     }
     &__list {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
+      dt {
+        font-weight: 500;
+        font-family: "Noto Sans JP", serif;
+      }
       dd {
         margin: 0 0 0 .6rem;
       }

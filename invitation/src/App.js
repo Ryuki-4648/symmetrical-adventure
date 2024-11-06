@@ -129,8 +129,8 @@ function App() {
         <section className='l-rsvp' id="rsvp">
           <h2 className='c-title01'>RSVP</h2>
           <a className='l-rsvp__button' href={process.env.REACT_APP_FORM_URL} target='_blank' rel="noreferrer">出欠情報を回答する</a>
-          <p className='c-text02'>誠に勝手ながら、10月11日（金）までにお返事をいただければ幸いに存じます</p>
-          <p className='c-text02'>期日以降、変更がある場合はお手数ですが直接ご連絡ください</p>
+          <p className='c-text02'>誠に勝手ながら、出欠のご変更は11月15日（金）までに直接ご連絡いただければ幸いに存じます</p>
+          {/* <p className='c-text02'>変更がある場合はお手数ですが直接ご連絡ください</p> */}
         </section>
 
         <section className='l-gift' id="gift">
@@ -184,7 +184,7 @@ function App() {
               <h3>GROOM</h3>
               <p className='l-profile__name'>{process.env.REACT_APP_GROOM_NAME}</p>
               <p className='l-profile__nameEn'>{process.env.REACT_APP_GROOM_NAME_EN}</p>
-              {/* <dl className='l-profile__list'>
+              <dl className='l-profile__list'>
                 <dt>生年月日</dt>
                 <dd>{process.env.REACT_APP_GROOM_BIRTHDAY}</dd>
               </dl>
@@ -193,6 +193,10 @@ function App() {
                 <dd>{process.env.REACT_APP_GROOM_BIRTHPLACE}</dd>
               </dl>
               <dl className='l-profile__list'>
+                <dt>好きなHUNTER×HUNTER</dt>
+                <dd>キルア</dd>
+              </dl>
+              {/* <dl className='l-profile__list'>
                 <dt>好きな食べ物</dt>
                 <dd>TODO：入力</dd>
               </dl>
@@ -203,29 +207,13 @@ function App() {
               <dl className='l-profile__list'>
                 <dt>好きなもの</dt>
                 <dd>TODO：入力</dd>
-              </dl>
-              <dl className='l-profile__list'>
-                <dt>特技</dt>
-                <dd>TODO：入力</dd>
-              </dl>
-              <dl className='l-profile__list'>
-                <dt>相手の第一印象</dt>
-                <dd>TODO：入力</dd>
-              </dl>
-              <dl className='l-profile__list'>
-                <dt>相手の好きなところ</dt>
-                <dd>TODO：入力</dd>
-              </dl>
-              <dl className='l-profile__list'>
-                <dt>どんな家庭を築きたい？</dt>
-                <dd>TODO：入力</dd>
               </dl> */}
             </div>
             <div className='l-profile__bride'>
               <h3>BRIDE</h3>
               <p className='l-profile__name'>{process.env.REACT_APP_BRIDE_NAME}</p>
               <p className='l-profile__nameEn'>{process.env.REACT_APP_BRIDE_NAME_EN}</p>
-              {/* <dl className='l-profile__list'>
+              <dl className='l-profile__list'>
                 <dt>生年月日</dt>
                 <dd>{process.env.REACT_APP_BRIDE_BIRTHDAY}</dd>
               </dl>
@@ -234,8 +222,12 @@ function App() {
                 <dd>{process.env.REACT_APP_BRIDE_BIRTHPLACE}</dd>
               </dl>
               <dl className='l-profile__list'>
+                <dt>好きなHUNTER×HUNTER</dt>
+                <dd>センリツ、イカルゴ、メルエム</dd>
+              </dl>
+              {/* <dl className='l-profile__list'>
                 <dt>好きな食べ物</dt>
-                <dd>酒のあて</dd>
+                <dd>きゅうり</dd>
               </dl>
               <dl className='l-profile__list'>
                 <dt>趣味</dt>
@@ -244,33 +236,17 @@ function App() {
               <dl className='l-profile__list'>
                 <dt>好きなもの</dt>
                 <dd>乃木坂・櫻坂・日向坂</dd>
-              </dl>
-              <dl className='l-profile__list'>
-                <dt>特技</dt>
-                <dd>1人でどこでも行ける</dd>
-              </dl>
-              <dl className='l-profile__list'>
-                <dt>相手の第一印象</dt>
-                <dd>TODO：入力</dd>
-              </dl>
-              <dl className='l-profile__list'>
-                <dt>相手の好きなところ</dt>
-                <dd>TODO：入力</dd>
-              </dl>
-              <dl className='l-profile__list'>
-                <dt>どんな家庭を築きたい？</dt>
-                <dd>TODO：入力</dd>
               </dl> */}
             </div>
           </div>
         </section>
 
-        {/* <section className='l-seeting'>
+        <section className='l-seeting'>
           <div className='l-seeting__wrap'>
             <h2 className='c-title01'>SEETING CHART<p className='c-title01__ja'>席次表</p></h2>
             <p className='c-text01'>Comming Soon...</p>
-            <p>PDFで開きます</p>
-            <button className='c-button01' disabled>席次表を見る</button>
+            {/* <p>PDFで開きます</p>
+            <button className='c-button01' disabled>席次表を見る</button> */}
           </div>
         </section>
 
@@ -278,7 +254,7 @@ function App() {
           <div className='l-menu__wrap'>
             <h2 className='c-title01'>MENU<p className='c-title01__ja'>お食事</p></h2>
             <p className='c-text01'>Comming Soon...</p>
-            <button className='c-button01' disabled>メニューを見る</button>
+            {/* <button className='c-button01' disabled>メニューを見る</button> */}
           </div>
         </section>
 
@@ -286,9 +262,9 @@ function App() {
           <div className='l-drink__wrap'>
             <h2 className='c-title01'>DRINK<p className='c-title01__ja'>お飲み物</p></h2>
             <p className='c-text01'>Comming Soon...</p>
-            <button className='c-button01' disabled>ドリンクメニューを見る</button>
+            {/* <button className='c-button01' disabled>ドリンクメニューを見る</button> */}
           </div>
-        </section> */}
+        </section>
 
         <section className='l-gallery'>
           <div className='l-gallery__wrap'>
