@@ -2,6 +2,8 @@ import './App.scss';
 
 import { useEffect, useRef, useState } from 'react';
 
+import dayjs from 'dayjs';
+
 import GiftMoneyModal from './components/GiftMoneyModal';
 import Header from './components/Header';
 import MvSlider from './components/MvSlider';
@@ -11,6 +13,20 @@ import Footer from './components/Footer';
 import ClosureModal from './components/ClosureModal';
 
 function App() {
+
+  /* 指定日に公開する */
+  const [displayButtonInDesignatedDay, setDisplayButtonInDesignatedDay] = useState(false);
+  const currentDate = dayjs();
+  const dayBeforeWedding = dayjs('2024-12-13');
+
+  useEffect(() => {
+    if (currentDate.isAfter(dayBeforeWedding)) {
+      setDisplayButtonInDesignatedDay(true)
+    } else {
+      setDisplayButtonInDesignatedDay(false)
+    }
+  }, [currentDate, dayBeforeWedding])
+
 
   /* ご祝儀モーダル */
   const [giftMoneyModal, setGiftMoneyModal] = useState(false);
@@ -22,6 +38,7 @@ function App() {
     setGiftMoneyModal(true);
     setOverlay(true);
   }
+
 
   /* ヘッダーメニュー */
   const [headerMenu, setHeaderMenu] = useState(false);
@@ -51,8 +68,6 @@ function App() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [mainImageHeight]);
-
-  /* トップへ戻る */
 
 
   return (
@@ -161,11 +176,15 @@ function App() {
             <h2 className='c-title01'>Facility information<p className='c-title01__ja'>会場施設のご案内</p></h2>
             <h3 className='c-title02'>受付</h3>
             <p className='c-text02'>
-              6階にございます
+              6階でございます
+            </p>
+            <h3 className='c-title02'>挙式 / 披露宴会場</h3>
+            <p className='c-text02'>
+              3階でございます
             </p>
             <h3 className='c-title02'>更衣室・クローク</h3>
             <p className='c-text02'>
-              1階にございます
+              1階でございます
             </p>
             <h3 className='c-title02'>授乳室</h3>
             <p className='c-text02'>
@@ -184,59 +203,71 @@ function App() {
               <h3>GROOM</h3>
               <p className='l-profile__name'>{process.env.REACT_APP_GROOM_NAME}</p>
               <p className='l-profile__nameEn'>{process.env.REACT_APP_GROOM_NAME_EN}</p>
-              <dl className='l-profile__list'>
-                <dt>生年月日</dt>
-                <dd>{process.env.REACT_APP_GROOM_BIRTHDAY}</dd>
-              </dl>
-              <dl className='l-profile__list'>
-                <dt>出身地</dt>
-                <dd>{process.env.REACT_APP_GROOM_BIRTHPLACE}</dd>
-              </dl>
-              <dl className='l-profile__list'>
-                <dt>好きなHUNTER×HUNTER</dt>
-                <dd>キルア</dd>
-              </dl>
-              {/* <dl className='l-profile__list'>
-                <dt>好きな食べ物</dt>
-                <dd>TODO：入力</dd>
-              </dl>
-              <dl className='l-profile__list'>
-                <dt>趣味</dt>
-                <dd>TODO：入力</dd>
-              </dl>
-              <dl className='l-profile__list'>
-                <dt>好きなもの</dt>
-                <dd>TODO：入力</dd>
-              </dl> */}
+              <div className='l-profile__listWrap'>
+                <dl className='l-profile__list'>
+                  <dt>生年月日</dt>
+                  <dd>{process.env.REACT_APP_GROOM_BIRTHDAY}</dd>
+                </dl>
+                <dl className='l-profile__list'>
+                  <dt>出身地</dt>
+                  <dd>{process.env.REACT_APP_GROOM_BIRTHPLACE}</dd>
+                </dl>
+                <dl className='l-profile__list'>
+                  <dt>趣味</dt>
+                  <dd>ゴルフ</dd>
+                </dl>
+                <dl className='l-profile__list'>
+                  <dt>好きなHUNTER×HUNTER</dt>
+                  <dd>キルア</dd>
+                </dl>
+                <dl className='l-profile__list'>
+                  <dt>好きなPRODUCE101</dt>
+                  <dd>釼持 菜乃</dd>
+                </dl>
+                {/* <dl className='l-profile__list'>
+                  <dt>好きな食べ物</dt>
+                  <dd>TODO：入力</dd>
+                </dl>
+                <dl className='l-profile__list'>
+                  <dt>好きなもの</dt>
+                  <dd>TODO：入力</dd>
+                </dl> */}
+              </div>
             </div>
             <div className='l-profile__bride'>
               <h3>BRIDE</h3>
               <p className='l-profile__name'>{process.env.REACT_APP_BRIDE_NAME}</p>
               <p className='l-profile__nameEn'>{process.env.REACT_APP_BRIDE_NAME_EN}</p>
-              <dl className='l-profile__list'>
-                <dt>生年月日</dt>
-                <dd>{process.env.REACT_APP_BRIDE_BIRTHDAY}</dd>
-              </dl>
-              <dl className='l-profile__list'>
-                <dt>出身地</dt>
-                <dd>{process.env.REACT_APP_BRIDE_BIRTHPLACE}</dd>
-              </dl>
-              <dl className='l-profile__list'>
-                <dt>好きなHUNTER×HUNTER</dt>
-                <dd>センリツ、イカルゴ、メルエム</dd>
-              </dl>
-              {/* <dl className='l-profile__list'>
-                <dt>好きな食べ物</dt>
-                <dd>きゅうり</dd>
-              </dl>
-              <dl className='l-profile__list'>
-                <dt>趣味</dt>
-                <dd>ひとり旅</dd>
-              </dl>
-              <dl className='l-profile__list'>
-                <dt>好きなもの</dt>
-                <dd>乃木坂・櫻坂・日向坂</dd>
-              </dl> */}
+              <div className='l-profile__listWrap'>
+                <dl className='l-profile__list'>
+                  <dt>生年月日</dt>
+                  <dd>{process.env.REACT_APP_BRIDE_BIRTHDAY}</dd>
+                </dl>
+                <dl className='l-profile__list'>
+                  <dt>出身地</dt>
+                  <dd>{process.env.REACT_APP_BRIDE_BIRTHPLACE}</dd>
+                </dl>
+                <dl className='l-profile__list'>
+                  <dt>趣味</dt>
+                  <dd>ひとり旅</dd>
+                </dl>
+                <dl className='l-profile__list'>
+                  <dt>好きなHUNTER×HUNTER</dt>
+                  <dd>センリツ, イカルゴ, メルエム</dd>
+                </dl>
+                <dl className='l-profile__list'>
+                  <dt>好きなPRODUCE101</dt>
+                  <dd>山本 すず, 高見 文寧, 石井 蘭, 髙畠 百加</dd>
+                </dl>
+                {/* <dl className='l-profile__list'>
+                  <dt>好きな食べ物</dt>
+                  <dd>きゅうり</dd>
+                </dl>
+                <dl className='l-profile__list'>
+                  <dt>好きなもの</dt>
+                  <dd>乃木坂・櫻坂・日向坂</dd>
+                </dl> */}
+              </div>
             </div>
           </div>
         </section>
@@ -244,25 +275,33 @@ function App() {
         <section className='l-seeting'>
           <div className='l-seeting__wrap'>
             <h2 className='c-title01'>SEETING CHART<p className='c-title01__ja'>席次表</p></h2>
-            <p className='c-text01'>Comming Soon...</p>
-            {/* <p>PDFで開きます</p>
-            <button className='c-button01' disabled>席次表を見る</button> */}
+            {displayButtonInDesignatedDay ?
+              <>
+                <p className="c-text03">PDFで開きます</p>
+                <a href='/' className='c-button01' target='_blank'>席次表を見る</a>
+              </> :
+              <p className='c-text01'>Comming Soon...<br />前日に表示されます</p>
+            }
           </div>
         </section>
 
         <section className='l-menu'>
           <div className='l-menu__wrap'>
             <h2 className='c-title01'>MENU<p className='c-title01__ja'>お食事</p></h2>
-            <p className='c-text01'>Comming Soon...</p>
-            {/* <button className='c-button01' disabled>メニューを見る</button> */}
+            {displayButtonInDesignatedDay ?
+              <button  className='c-button01'>メニューを見る</button> : 
+              <p className='c-text01'>Comming Soon...<br />前日に表示されます</p>
+            }
           </div>
         </section>
 
         <section className='l-drink'>
           <div className='l-drink__wrap'>
             <h2 className='c-title01'>DRINK<p className='c-title01__ja'>お飲み物</p></h2>
-            <p className='c-text01'>Comming Soon...</p>
-            {/* <button className='c-button01' disabled>ドリンクメニューを見る</button> */}
+            {displayButtonInDesignatedDay ? 
+              <button  className='c-button01'>ドリンクメニューを見る</button> : 
+              <p className='c-text01'>Comming Soon...<br />前日に表示されます</p>
+            }
           </div>
         </section>
 

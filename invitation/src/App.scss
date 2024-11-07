@@ -24,7 +24,7 @@
     text-align: right;
     &.is-active {
       button {
-        color: #636363;
+        color: var(--color-dark-gray);
       }
     }
     &Content {
@@ -208,7 +208,7 @@
     }
     &__dayofweek {
       font-size: 2rem;
-      border: 2px solid #222222;
+      border: 2px solid var(--color-dark-border);
       width: 100px;
       height: 36px;
       border-radius: 40px;
@@ -258,7 +258,7 @@
       letter-spacing: .05em;
       background-color: var(--color-accent);
       border: none;
-      color: #333;
+      color: var(--color-text);
     }
   }
 
@@ -323,12 +323,16 @@
       width: 50%;
     }
     &__list {
-      font-size: 1.3rem;
+      &Wrap {
+        margin: 24px auto 0;
+      }
       dt {
+        font-size: 1.3rem;
         font-weight: 500;
         font-family: "Noto Sans JP", serif;
       }
       dd {
+        font-size: 1.25rem;
         margin: 0 0 0 .6rem;
       }
     }
@@ -355,7 +359,7 @@
       padding: 2rem;
       border-radius: 2rem;
       background: var(--color-background);
-      border: 1px solid #212121;
+      border: 1px solid var(--color-black);
       z-index: 11;
       &__button {
         cursor: pointer;
@@ -364,7 +368,7 @@
         align-items: center;
         margin: 0 auto;
         border: none;
-        border: 1px solid #212121;
+        border: 1px solid var(--color-black);
         width: 20rem;
         height: 3.6rem;
         border-radius: 2rem;
@@ -460,25 +464,31 @@
   }
   &button {
     &01 {
-      // border: 1px solid #212121;
+      // border: 1px solid var(--color-black);
       border: none;
-      color: #212121;
-      background-color: #ddd;
+      color: var(--color-black);
+      background-color: var(--color-button-bg);
       width: 240px;
       height: 36px;
       display: flex;
       justify-content: center;
       align-items: center;
       margin: 0 auto;
-      // cursor: pointer;
+      font-size: 1.3rem;
+      font-family: var(--font-family-noto-sans-jp);
+      transition: all .3s;
+      &:hover {
+        background-color: var(--color-dark-gray);
+        color: var(--color-base);
+      }
     }
     &02 {
       font-family: var(--font-family-noto-serif-jp);
       border: none;
-      // border: 1px solid #212121;
+      // border: 1px solid var(--color-black);
       // background-color: var(--color-base);
-      background-color: var(--color-background);
-      color: var(--color-text);
+      background-color: var(--color-dark-gray);
+      color: var(--color-base);
       width: 28rem;
       height: 4rem;
       display: flex;
@@ -487,20 +497,26 @@
       margin: 0 auto;
       cursor: pointer;
       font-size: 1.4rem;
+      font-weight: 500;
       &:hover {
-        background-color: var(--color-accent);
+        background-color: var(--color-background);
+        color: var(--color-text);
       }
       &:not(:last-child) {
         margin-bottom: 2rem;
         margin-top: 2.4rem;
       }
     }
+    &03 {
+      background-color: var(--color-background);
+      color: var(--color-text);
+    }
     &Top {
       width: 40px;
       height: 40px;
       border-radius: 50%;
       background-color: var(--color-base);
-      border: 1px solid #333;
+      border: 1px solid var(--color-text);
       position: fixed;
       right: 1.6rem;
       bottom: 2.2rem;
@@ -521,8 +537,8 @@
         display: block;
         width: .8rem;
         height: .8rem;
-        border-top: 1px solid #333;
-        border-right: 1px solid #333;
+        border-top: 1px solid var(--color-text);
+        border-right: 1px solid var(--color-text);
         position: absolute;
         top: calc(50% + 1px);
         left: 50%;
@@ -564,6 +580,12 @@
       font-size: 1.3rem;
       text-align: left;
       line-height: 2;
+    }
+    &03 {
+      font-size: 1.3rem;
+      text-align: center;
+      line-height: 1.8;
+      margin: 0 auto 1rem;
     }
   }
   &gallery {
