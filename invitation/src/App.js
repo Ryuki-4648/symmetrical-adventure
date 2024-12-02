@@ -69,6 +69,14 @@ function App() {
     };
   }, [mainImageHeight]);
 
+  /* プロフィール：Read more */
+  const [displayProfile, setDispplayProfile] = useState({});
+  const handleDisplayProfile = (index) => {
+    setDispplayProfile((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index],
+    }))
+  }
 
   return (
     <div className='l-container'>
@@ -120,7 +128,7 @@ function App() {
             </dl>
 
             <p className='l-outline__place'>@ {process.env.REACT_APP_WEDDING_PLACE_EN}<br />（{process.env.REACT_APP_WEDDING_PLACE}）</p>
-            <p className='c-text02'>誠に恐れ入りますが、挙式15分前までにお越しくださいますようお願い申し上げます</p>
+            <p className='c-text02'>- 誠に恐れ入りますが、挙式15分前までにお越しくださいますようお願い申し上げます<br />- 披露宴は18時ごろ終了予定です<br />- 二次会の開催はございません</p>
           </div>
         </section>
 
@@ -136,8 +144,8 @@ function App() {
             </div>
 
             <h2 className='c-title01'>BUS<p className='c-title01__ja'>シャトルバスのご案内</p></h2>
-            
-            <p className='c-text01'>Comming Soon...<br/>式の1ヶ月前に時刻表を掲載します。</p>
+            <p className='c-text04'><span>三宮</span><br />始発 8:00 / 毎時0分・20分・40分で運行</p>
+            <p className='c-text04'><span>新神戸</span><br />始発7:50 / 毎時50分で運行</p>
           </div>
         </section>
 
@@ -174,7 +182,11 @@ function App() {
         <section className='l-facility' id="facility">
           <div className='l-facility__wrap'>
             <h2 className='c-title01'>Facility information<p className='c-title01__ja'>会場施設のご案内</p></h2>
-            <h3 className='c-title02'>受付</h3>
+            <h3 className='c-title02'>更衣室 / クローク</h3>
+            <p className='c-text02'>
+              1階でございます
+            </p>
+            <h3 className='c-title02'>受付 / 待合</h3>
             <p className='c-text02'>
               6階でございます
             </p>
@@ -182,9 +194,9 @@ function App() {
             <p className='c-text02'>
               3階でございます
             </p>
-            <h3 className='c-title02'>更衣室・クローク</h3>
+            <h3 className='c-title02'>喫煙所</h3>
             <p className='c-text02'>
-              1階でございます
+              待合ラウンジ、披露宴会場近くにございます
             </p>
             <h3 className='c-title02'>授乳室</h3>
             <p className='c-text02'>
@@ -216,22 +228,35 @@ function App() {
                   <dt>趣味</dt>
                   <dd>ゴルフ</dd>
                 </dl>
-                <dl className='l-profile__list'>
-                  <dt>好きなHUNTER×HUNTER</dt>
-                  <dd>キルア</dd>
-                </dl>
-                <dl className='l-profile__list'>
-                  <dt>好きなPRODUCE101</dt>
-                  <dd>釼持 菜乃</dd>
-                </dl>
-                {/* <dl className='l-profile__list'>
-                  <dt>好きな食べ物</dt>
-                  <dd>TODO：入力</dd>
-                </dl>
-                <dl className='l-profile__list'>
-                  <dt>好きなもの</dt>
-                  <dd>TODO：入力</dd>
-                </dl> */}
+                {!displayProfile[1] && <p className='c-text05' onClick={() => handleDisplayProfile(1)}>Read more</p>}
+                {displayProfile[1] &&
+                <div>
+                  <dl className='l-profile__list'>
+                    <dt>好きな乃木坂46</dt>
+                    <dd>星野 みなみ、川﨑 桜</dd>
+                  </dl>
+                  <dl className='l-profile__list'>
+                    <dt>好きな欅坂46</dt>
+                    <dd>森田 ひかる</dd>
+                  </dl>
+                  <dl className='l-profile__list'>
+                    <dt>好きな櫻坂46</dt>
+                    <dd>増本 綺良、森田 ひかる、山下 瞳月</dd>
+                  </dl>
+                  <dl className='l-profile__list'>
+                    <dt>好きな日向坂46</dt>
+                    <dd>齊藤 京子</dd>
+                  </dl>
+                  <dl className='l-profile__list'>
+                    <dt>好きなHUNTER×HUNTER</dt>
+                    <dd>キルア</dd>
+                  </dl>
+                  <dl className='l-profile__list'>
+                    <dt>好きな日プ</dt>
+                    <dd>釼持 菜乃</dd>
+                  </dl>
+                </div>
+                }
               </div>
             </div>
             <div className='l-profile__bride'>
@@ -251,22 +276,34 @@ function App() {
                   <dt>趣味</dt>
                   <dd>ひとり旅</dd>
                 </dl>
-                <dl className='l-profile__list'>
-                  <dt>好きなHUNTER×HUNTER</dt>
-                  <dd>センリツ, イカルゴ, メルエム</dd>
-                </dl>
-                <dl className='l-profile__list'>
-                  <dt>好きなPRODUCE101</dt>
-                  <dd>山本 すず, 高見 文寧, 石井 蘭, 髙畠 百加</dd>
-                </dl>
-                {/* <dl className='l-profile__list'>
-                  <dt>好きな食べ物</dt>
-                  <dd>きゅうり</dd>
-                </dl>
-                <dl className='l-profile__list'>
-                  <dt>好きなもの</dt>
-                  <dd>乃木坂・櫻坂・日向坂</dd>
-                </dl> */}
+                {!displayProfile[2] && <p className='c-text05' onClick={() => handleDisplayProfile(2)}>Read more</p>}
+                {displayProfile[2] && 
+                <div>
+                  <dl className='l-profile__list'>
+                    <dt>好きな乃木坂46</dt>
+                    <dd>衛藤 美彩、橋本 奈々未、与田 祐希、池田 瑛紗</dd>
+                  </dl>
+                  <dl className='l-profile__list'>
+                    <dt>好きな欅坂46</dt>
+                    <dd>渡辺 梨加</dd>
+                  </dl>
+                  <dl className='l-profile__list'>
+                    <dt>好きな櫻坂46</dt>
+                    <dd>守屋 麗奈、田村 保乃、山﨑 天、森田 ひかる</dd>
+                  </dl>
+                  <dl className='l-profile__list'>
+                    <dt>好きな日向坂46</dt>
+                    <dd>小坂 菜緒、渡辺 莉奈、正源司 陽子</dd>
+                  </dl>
+                  <dl className='l-profile__list'>
+                    <dt>好きなHUNTER×HUNTER</dt>
+                    <dd>センリツ、イカルゴ、メルエム</dd>
+                  </dl>
+                  <dl className='l-profile__list'>
+                    <dt>好きな日プ</dt>
+                    <dd>山本 すず、高見 文寧、石井 蘭、髙畠 百加</dd>
+                  </dl>
+                </div>}
               </div>
             </div>
           </div>
@@ -274,7 +311,7 @@ function App() {
 
         <section className='l-seeting'>
           <div className='l-seeting__wrap'>
-            <h2 className='c-title01'>SEETING CHART<p className='c-title01__ja'>席次表</p></h2>
+            <h2 className='c-title01'>SEETING CHART<p className='c-title01__ja'>簡易席次表</p></h2>
             {displayButtonInDesignatedDay ?
               <>
                 <p className="c-text03">PDFで開きます</p>
