@@ -7,10 +7,12 @@ function Header({headerMenu}) {
       {name: 'Top', url: '/'},
       {name: 'Date', url: '#date'},
       {name: 'Access', url: '#access'},
-      {name: 'Rsvp', url: '#rsvp'},
-      {name: 'Gift money', url: '#gift'},
+      // {name: 'Rsvp', url: '#rsvp'},
       {name: 'Facility Information', url: '#facility'},
-      // {name: 'Profile', url: '#prof'},
+      {name: 'Profile', url: '#prof'},
+      {name: 'Seat', url: '#seat'},
+      {name: 'Menu', url: '#menu'},
+      {name: 'Drink', url: '#drink'},
   ];
 
   /* ハンバーガーメニュー */
