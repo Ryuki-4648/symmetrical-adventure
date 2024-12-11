@@ -334,6 +334,9 @@
       dd {
         font-size: 1.25rem;
         margin: 0 0 0 .6rem;
+        span {
+          font-size: 1rem;
+        }
       }
     }
   }
@@ -344,6 +347,7 @@
     border-bottom: 1px solid var(--color-background);
     &__wrap {
       padding: 0;
+      overflow-y: scroll;
     }
     &__click {
       cursor: pointer;
@@ -356,11 +360,13 @@
       transform: translate(-50%, -50%);
       width: 80%;
       max-width: 34rem;
-      padding: 2rem;
+      height: 85vh;
       border-radius: 2rem;
       background: var(--color-background);
       border: 1px solid var(--color-black);
       z-index: 11;
+      padding: 2rem;
+
       &__button {
         cursor: pointer;
         display: flex;
@@ -377,6 +383,10 @@
         &:hover {
           background-color: var(--color-gray-light);
         }
+      }
+      &__wrap {
+        overflow-y: scroll;
+        height: 85vh;
       }
       &__title {
         font-size: 1.8rem;
@@ -648,6 +658,30 @@
       height: 3.6rem;
       color: var(--color-text);
       font-size: 1.5rem;
+    }
+  }
+  &menu {
+    &Title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 0 auto .5rem;
+      line-height: 1.8;
+      span {
+        font-size: 1rem;
+        margin: 0 0 0 .6rem;
+        vertical-align: middle;
+      }
+    }
+    &Text {
+      font-size: 1.25rem;
+      text-align: left;
+      line-height: 1.8;
+      margin: 0 auto 1.5rem;
+    }
+  }
+  &seat {
+    &Img {
+      max-width: 100%;
     }
   }
 }
